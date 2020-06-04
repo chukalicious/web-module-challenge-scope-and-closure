@@ -100,16 +100,17 @@ finalScore(inning, 9) might return:
 
 */ 
 
-let addInnings = 0; 
+let addInnings = 0
 function finalScore(turns, callback){
-  
+  let showInnings = 0; 
   for ( var i = 0; i < turns; i++) {
-    addInnings + callback;
-    return addInnings; 
+    var inningOne = callback; 
+    return inningOne; 
   }
+
+  console.log(showInnings + ' <-- this is the inning counter not being added anything'); 
 }
-finalScore(3, inning()); 
-console.log(addInnings + ' <-- this is the inning counter not being added anything'); 
+console.log(finalScore(3, inning())); 
 
 /* Task 4: 
 
