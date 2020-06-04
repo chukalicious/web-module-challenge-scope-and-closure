@@ -32,7 +32,7 @@ console.log(isStrictMode()) //sneaky, sneaky
 function addString(str) {
   return str + str; 
 }
-console.log(addString(list[0]));
+/* console.log(addString(list[0])); */
 
 
 // ⭐️ Example Challenge END ⭐️
@@ -82,9 +82,9 @@ counter2();
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
 function inning(){
-  return Math.floor(Math.random() * 6) + 1; 
+  return Math.floor(Math.random() * 10) + 1; 
 }
-console.log(inning() + ' <-- this is the inning being called for the first time. It\'s in its own scope and runs independently fron amything else'); 
+/* console.log(inning());  */
 
 /* Task 3: finalScore()
 
@@ -100,12 +100,14 @@ finalScore(inning, 9) might return:
 
 */ 
 
-let addInnings = 0
-function finalScore(turns, callback){
-  let showInnings = 0; 
 
-  return callback
-  
+function finalScore(turns, callback){
+  let addInnings = 0; 
+  for (var i = 0; i < turns; i++) {
+    addInnings = addInnings + callback;
+    console.log(addInnings); 
+  }//the loop is getting the random number only once, and then adding that random number it the time of turns (3)
+  return addInnings; 
 }
 console.log(finalScore(3, inning()) + ' <-- this is the addInnings var. It is registering the random number but this one is not being added anywhere yet'); 
 
