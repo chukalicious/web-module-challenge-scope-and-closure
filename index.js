@@ -84,7 +84,7 @@ Write a function called `inning` that generates a random number of points that a
 function inning(){
   return Math.floor(Math.random() * 6) + 1; 
 }
-console.log(inning() + ' <-- this is the inning being called for the first time'); 
+console.log(inning() + ' <-- this is the inning being called for the first time. It\'s in its own scope and runs independently fron amything else'); 
 
 /* Task 3: finalScore()
 
@@ -103,14 +103,11 @@ finalScore(inning, 9) might return:
 let addInnings = 0
 function finalScore(turns, callback){
   let showInnings = 0; 
-  for ( var i = 0; i < turns; i++) {
-    var inningOne = callback; 
-    return inningOne; 
-  }
 
-  console.log(showInnings + ' <-- this is the inning counter not being added anything'); 
+  return callback
+  
 }
-console.log(finalScore(3, inning())); 
+console.log(finalScore(3, inning()) + ' <-- this is the addInnings var. It is registering the random number but this one is not being added anywhere yet'); 
 
 /* Task 4: 
 
