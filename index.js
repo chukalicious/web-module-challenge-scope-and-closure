@@ -44,9 +44,10 @@ console.log(addString(list[0]));
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * counter 2 is hoisted, counter 1 is not
+ * counter 2 is hoisted and returning a value, counter 1 is not hoisted nor returning anything
  * 
  * 2. Which of the two uses a closure? How can you tell?
+ * counter 2 is using a closure, counter 1 is not returning a value or perforing any function. Has an inner function named counter() that is not being called anywhere
  * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
  * 
@@ -55,6 +56,7 @@ console.log(addString(list[0]));
 */
 
 // counter1 code
+
 function counterMaker() {
   let count = 0;
   return function counter() {
@@ -73,8 +75,6 @@ function counter2() {
 counter2(); 
 
 console.log(count); 
-
-
 
 /* Task 2: inning() 
 
