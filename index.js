@@ -27,7 +27,7 @@ processFirstItem(list, addString)
 function isStrictMode() {
   return (typeof this == 'undefined');
 }
-console.log(isStrictMode()) //you could have let us know
+console.log(isStrictMode()) //sneaky, sneaky
 
 function addString(str) {
   return str + str; 
@@ -64,7 +64,7 @@ function counterMaker() {
   }
 }
 const counter1 = counterMaker();
-console.log(counter1); 
+/* console.log(counter1);  */
 
 // counter2 code
 let count = 0;
@@ -74,17 +74,17 @@ function counter2() {
 }
 counter2(); 
 
-console.log(count); 
+/* console.log(count);  */
+
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  return Math.floor(Math.random() * 6) + 1; 
 }
+console.log(inning()); 
 
 /* Task 3: finalScore()
 
