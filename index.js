@@ -6,20 +6,34 @@
  * @instructions
  * Implement a higher-order function called `processFirstItem`.
  * It takes two arguments:
- * @param stringList an array of strings.
- * @param callback function that takes a string as its argument.
- * @returns the result of invoking `callback` with the FIRST element in `stringList`.
+ * //@param stringList an array of strings.
+ * //@param callback function that takes a string as its argument.
+ * //@returns the result of invoking `callback` with the FIRST element in `stringList`.
  * 
  * Example of usage of this higher-order function:
  * Invoking `processFirstItem` passing `['foo', 'bar']` and `(str) => str + str`,
  * should return 'foofoo'.
 */
+
+let list = ['foo', 'bar']
+console.log(list); 
+
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 
-  
-
 }
+processFirstItem(list, addString)
+
+function isStrictMode() {
+  return (typeof this == 'undefined');
+}
+console.log(isStrictMode()) //you could have let us know
+
+function addString(str) {
+  return str + str; 
+}
+console.log(addString(list[0]));
+
 
 // ⭐️ Example Challenge END ⭐️
 
