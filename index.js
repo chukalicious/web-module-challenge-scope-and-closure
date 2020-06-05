@@ -74,21 +74,45 @@ function counter2() {
 }
 counter2(); 
 
-/* console.log(count);  */
+console.log(count); 
 
 
 /* Task 2: inning() 
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
+
+
+//let HomeVsAway = [{home: 0, away: 0}]; 
+
+function finalScore(turns, callback){
+  let score;
+  score = inning();
+  callback;
+  for (var i = 0; i < turns; i++) { 
+    score = score + callback; 
+    console.log(score); 
+  }
+  return score; 
+}
+finalScore(3, inning())
+
+
 function inning(){
-  return Math.floor(Math.random() * 10) + 1; 
+  return Math.floor(Math.random() * 6) + 1; 
+}
+inning() 
+
+function inning(){
+  return Math.floor(Math.random() * 6) + 1; 
 }
 /* console.log(inning());  */
 
+
+
 /* Task 3: finalScore()
 
-Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and and returns the final score of the game in the form of an object.
+Write a higher order function called `finalScore` that accepts the callback function `inning` (from above) and a number of innings and returns the final score of the game in the form of an object.
 
 For example, 
 
@@ -99,17 +123,19 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-
+let HomeVsAway = [{home: 0, away: 0}]; 
 
 function finalScore(turns, callback){
-  let addInnings = 0; 
+  let score = 0;
   for (var i = 0; i < turns; i++) {
-    addInnings = addInnings + callback;
-    console.log(addInnings); 
-  }//the loop is getting the random number only once, and then adding that random number it the time of turns (3)
-  return addInnings; 
+    callback; 
+    score = score + callback; 
+    console.log(score); 
+  }
+  return score; 
 }
-console.log(finalScore(3, inning()) + ' <-- this is the addInnings var. It is registering the random number but this one is not being added anywhere yet'); 
+console.log(finalScore(3, inning())); 
+
 
 /* Task 4: 
 
