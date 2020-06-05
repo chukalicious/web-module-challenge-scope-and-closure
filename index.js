@@ -89,25 +89,24 @@ Write a function called `inning` that generates a random number of points that a
 
 //let HomeVsAway = [{home: 0, away: 0}]; 
 
+function inning(){
+  return Math.floor(Math.random() * 6) + 1; 
+}
+inning() 
+
+//let HomeVsAway = [{home: 0, away: 0}]; 
+
 function finalScore(turns, callback){
-  let score = 0
-  //score = inning();
-  //callback;
+  let score = 0;
   for (var i = 0; i < turns; i++) { 
-    //callback;
-    score = score + callback; 
-    console.log(score); 
+    score = score + callback;
+    console.log(score);
+    Math.floor(Math.random() * 6) + 1;  
+     
   }
   return score; 
 }
 finalScore(3, inning())
-
-
-function inning(){
-  return Math.floor(Math.random() * 6) + 1; 
-}
-inning()  
-
 
 /* console.log(inning());  */
 
