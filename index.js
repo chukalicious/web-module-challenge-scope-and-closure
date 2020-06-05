@@ -97,19 +97,16 @@ function inning(){
 //let HomeVsAway = [{home: 0, away: 0}]; 
 
 function finalScore(turns){
+  let HomeVsAway = [{home: 0, away: 0}]; 
   let score = 0;
   for (var i = 0; i < turns; i++) { 
-    let random = Math.floor(Math.random() * 3) + 1;
-    score = score + random;//callback is not changing, it needs to change, it needs to be inside the loop
-    /* console.log(score); */  
-     
+    let random = Math.floor(Math.random() * 2) + 1;
+    HomeVsAway[0].home = score + random;
+    HomeVsAway[0].away = score + random; 
   }
-  return score; 
+  return HomeVsAway; 
 }
 console.log(finalScore(3)); 
-
-/* console.log(inning());  */
-
 
 
 /* Task 3: finalScore()
@@ -125,7 +122,7 @@ finalScore(inning, 9) might return:
 }
 
 */ 
-let HomeVsAway = [{home: 0, away: 0}]; 
+
 
 /* function finalScore(turns, callback){
   let score = 0;
