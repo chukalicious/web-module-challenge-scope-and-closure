@@ -86,11 +86,7 @@ function inning(){
   return randomNumber; 
 }
 /* console.log(inning());  */
- 
-let homeTeam = inning();
-console.log(homeTeam)
-let awayTeam = inning(); 
-console.log(awayTeam); 
+
 
 /* Task 3: finalScore()
 
@@ -106,15 +102,15 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(turns, callback){//when I add inning() as the second parameter the random number becomes static
+function finalScore(turns){//when I add inning() as the second parameter the random number becomes static
   let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
   let homeScore = 0;//this is the counter for the home team
   let awayScore = 0; //this is the counter for the away team
   for (var i = 0; i < turns; i++) { 
     //two random numbers for the 2 teams
-    let homeInning = callback;
+    let homeInning = inning();
     homeScore = homeScore + homeInning;//this line ADDS the value of the random number to the homeScore
-    let awayInning = callback;
+    let awayInning = inning();
     awayScore = awayScore + awayInning; //this line ADDS the value of the random number to the awayScore
 
     //this assigns the value to the place where I want it on the object
@@ -123,7 +119,7 @@ function finalScore(turns, callback){//when I add inning() as the second paramet
   }
   return HomeVsAway; 
 }
-console.log(finalScore(3,inning())); 
+console.log(finalScore(3)); 
 
 
 /* Task 4: 
