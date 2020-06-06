@@ -81,40 +81,16 @@ console.log(count);
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-
-
-//let HomeVsAway = [{home: 0, away: 0}]; 
-
-
-
-//let HomeVsAway = [{home: 0, away: 0}]; 
-
 function inning(){
-  return Math.floor(Math.random() * 2) + 1; 
+  let randomNumber = Math.floor(Math.random() * 2) + 1; 
+  return randomNumber; 
 }
-
-function finalScore(turns){
-  let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
-  let homeScore = 0;//this is the counter for the home team
-  let awayScore = 0; //this is the counter for the away team
-  for (var i = 0; i < turns; i++) { 
-    //two random numbers for the 2 teams
-    let homeInning = inning();
-    homeScore = homeScore + homeInning;//this line ADDS the value of the random number to the homeScore
-    let awayInning = inning();
-    awayScore = awayScore + awayInning; //this line ADDS the value of the random number to the awayScore
-
-    //this assigns the value to the place where I want it on the object
-    HomeVsAway[0].home = homeScore;
-    HomeVsAway[0].away = awayScore; 
-  }
-  return HomeVsAway; 
-}
-console.log(finalScore(3)); 
-
-
-
-
+/* console.log(inning());  */
+ 
+let homeTeam = inning();
+console.log(homeTeam)
+let awayTeam = inning(); 
+console.log(awayTeam); 
 
 /* Task 3: finalScore()
 
@@ -130,17 +106,24 @@ finalScore(inning, 9) might return:
 
 */ 
 
+function finalScore(turns, callback){//when I add inning() as the second parameter the random number becomes static
+  let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
+  let homeScore = 0;//this is the counter for the home team
+  let awayScore = 0; //this is the counter for the away team
+  for (var i = 0; i < turns; i++) { 
+    //two random numbers for the 2 teams
+    let homeInning = callback;
+    homeScore = homeScore + homeInning;//this line ADDS the value of the random number to the homeScore
+    let awayInning = callback;
+    awayScore = awayScore + awayInning; //this line ADDS the value of the random number to the awayScore
 
-/* function finalScore(turns, callback){
-  let score = 0;
-  for (var i = 0; i < turns; i++) {
-    callback; 
-    score = score + callback; 
-    console.log(score); 
+    //this assigns the value to the place where I want it on the object
+    HomeVsAway[0].home = homeScore;
+    HomeVsAway[0].away = awayScore; 
   }
-  return score; 
+  return HomeVsAway; 
 }
-console.log(finalScore(3, inning())); */ 
+console.log(finalScore(3,inning())); 
 
 
 /* Task 4: 
