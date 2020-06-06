@@ -92,23 +92,21 @@ Write a function called `inning` that generates a random number of points that a
 function inning(){
   return Math.floor(Math.random() * 2) + 1; 
 }
-/* console.log(inning()); */
-
-//let HomeVsAway = [{home: 0, away: 0}]; 
 
 function finalScore(turns){
   let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
-  /* let score = 0; this is the counter */
-  let homeScore = 0;
-  let awayScore = 0; 
+  let homeScore = 0;//this is the counter for the home team
+  let awayScore = 0; //this is the counter for the away team
   for (var i = 0; i < turns; i++) { 
-    //here are the 2 random numbers, thank you very much!
+    //two random numbers for the 2 teams
     let homeInning = inning();
-    homeScore = homeScore + homeInning;
+    homeScore = homeScore + homeInning;//this line ADDS the value of the random number to the homeScore
     let awayInning = inning();
-    awayScore = awayScore + awayInning; 
+    awayScore = awayScore + awayInning; //this line ADDS the value of the random number to the awayScore
+
+    //this assigns the value to the place where I want it on the object
     HomeVsAway[0].home = homeScore;
-    HomeVsAway[0].away = awayScore /* + awayInning */; 
+    HomeVsAway[0].away = awayScore; 
   }
   return HomeVsAway; 
 }
