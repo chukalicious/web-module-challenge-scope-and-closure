@@ -100,13 +100,18 @@ function finalScore(turns){
   let HomeVsAway = [{home: 0, away: 0}]; 
   let score = 0;
   for (var i = 0; i < turns; i++) { 
-    let random = Math.floor(Math.random() * 2) + 1;
+    let random = inning(); 
+    let newInning = inning(); 
+    //you need to make 2 random numbers. good luck with that!
     HomeVsAway[0].home = score + random;
-    HomeVsAway[0].away = score + random; 
+    HomeVsAway[0].away = score + newInning; 
   }
   return HomeVsAway; 
 }
 console.log(finalScore(3)); 
+
+let random = Math.floor(Math.random() * 2) + 1;
+
 
 
 /* Task 3: finalScore()
