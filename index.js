@@ -142,29 +142,24 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
-
-//this time the good people at Lambda want me to display every result on every turn
-
-//this function creates arrays of random numbers for the home and away teams and logs them to the console. it does not return values
-function scoresPerInning(turns) {
+function scoreboard(turns) {
   let homeArray = [];
   let awayArray = [];
+  let ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
+  let scoreLine = [];
   for (var i = 0; i < turns; i++) {
     let homeScores = Math.floor(Math.random() * 2 + 1);
     let awayScores = Math.floor(Math.random() * 2 + 1);
     homeArray.push(homeScores); 
     awayArray.push(awayScores); 
-    /* console.log(homeArray[i]); */
-    //console.log(awayArray[i]);
+    scoreLine.push(`${ordinal[i]} inning: ${homeArray[i]} - ${awayArray[i]}`);
   }
-  /* console.log(homeArray); */
-  //console.log(awayArray);
+  return scoreLine; 
 
-  //this array of objects logs to the console the values of the function above
-  let inningsObject = [
+  
+
+  //Option with array of objects
+  /* let inningsObject = [
     {'1st inning': `${homeArray[0]} - ${awayArray[0]}`},
     {'2nd inning': `${homeArray[1]} - ${awayArray[1]}`},
     {'3rd inning': `${homeArray[2]} - ${awayArray[2]}`},
@@ -175,10 +170,10 @@ function scoresPerInning(turns) {
     {'8th inning': `${homeArray[7]} - ${awayArray[7]}`},
     {'9th inning': `${homeArray[8]} - ${awayArray[8]}`}
   ]
-  console.log(inningsObject);
-  return inningsObject; 
+  return inningsObject;  */
+
 }
-console.log(scoresPerInning(9)); 
+console.log(scoreboard(9)); 
 
 
 
