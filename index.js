@@ -15,6 +15,7 @@
  * should return 'foofoo'.
 */
 
+
 let list = ['foo', 'bar']
 console.log(list); 
 
@@ -22,12 +23,7 @@ function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 
 }
-processFirstItem(list, addString)
-
-function isStrictMode() {
-  return (typeof this == 'undefined');
-}
-console.log(isStrictMode()) //sneaky, sneaky
+console.log(processFirstItem(list, addString))
 
 function addString(str) {
   return str + str; 
@@ -101,15 +97,15 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(turns){//when I add inning() as the second parameter the random number becomes static
+function finalScore(turns,func){//when I add inning() as the second parameter the random number becomes static
   let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
   let homeScore = 0;//this is the counter for the home team
   let awayScore = 0; //this is the counter for the away team
   for (var i = 0; i < turns; i++) { 
     //two random numbers for the 2 teams
-    let homeInning = inning();
+    let homeInning = func();
     homeScore = homeScore + homeInning;//this line ADDS the value of the random number to the homeScore
-    let awayInning = inning();
+    let awayInning = func();
     awayScore = awayScore + awayInning; //this line ADDS the value of the random number to the awayScore
 
     //this assigns the value to the place where I want it on the object
@@ -118,7 +114,7 @@ function finalScore(turns){//when I add inning() as the second parameter the ran
   }
   return HomeVsAway; 
 }
-console.log(finalScore(9)); 
+console.log(finalScore(9, inning)); 
 
 
 /* Task 4: 
@@ -142,24 +138,25 @@ and returns the score at each pont in the game, like so:
 
 Final Score: 6 - 10 */
 
-function scoreboard(turns) {
+function scoreboard(turns, func) {
   let homeArray = [];
   let awayArray = [];
-  let ordinal = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'];
+  let ordinal = ['st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
   let scoreLine = [];
   for (var i = 0; i < turns; i++) {
-    let homeScores = Math.floor(Math.random() * 2 + 1);
-    let awayScores = Math.floor(Math.random() * 2 + 1);
+    //func has to regenerate inside the loop
+    
+    let homeScores = func(); 
+    let awayScores = func();
     homeArray.push(homeScores); 
     awayArray.push(awayScores); 
-    scoreLine.push(`${ordinal[i]} inning: ${homeArray[i]} - ${awayArray[i]}`);
+    scoreLine.push(`${i + 1}${ordinal[i]} inning: ${homeArray[i]} - ${awayArray[i]}`);
   }
-  return scoreLine; 
-
+  //return scoreLine; 
   
-
+  
   //Option with array of objects
-  /* let inningsObject = [
+  let inningsObject = [
     {'1st inning': `${homeArray[0]} - ${awayArray[0]}`},
     {'2nd inning': `${homeArray[1]} - ${awayArray[1]}`},
     {'3rd inning': `${homeArray[2]} - ${awayArray[2]}`},
@@ -170,11 +167,10 @@ function scoreboard(turns) {
     {'8th inning': `${homeArray[7]} - ${awayArray[7]}`},
     {'9th inning': `${homeArray[8]} - ${awayArray[8]}`}
   ]
-  return inningsObject;  */
+  return inningsObject; 
 
 }
-console.log(scoreboard(9)); 
-
+console.log(scoreboard(9, inning)); 
 
 
 
