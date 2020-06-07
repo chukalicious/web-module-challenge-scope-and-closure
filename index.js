@@ -81,9 +81,8 @@ console.log(count);
 
 Write a function called `inning` that generates a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(){
-  let randomNumber = Math.floor(Math.random() * 2) + 1; 
-  return randomNumber; 
+function inning(){ 
+  return Math.floor(Math.random() * 2) + 1;
 }
 /* console.log(inning());  */
 
@@ -119,7 +118,7 @@ function finalScore(turns){//when I add inning() as the second parameter the ran
   }
   return HomeVsAway; 
 }
-console.log(finalScore(3)); 
+console.log(finalScore(9)); 
 
 
 /* Task 4: 
@@ -146,5 +145,44 @@ Final Score: 6 - 10 */
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
+
+//this time the good people at Lambda want me to display every result on every turn
+
+//this function creates arrays of random numbers for the home and away teams and logs them to the console. it does not return values
+function scoresPerInning() {
+  let homeArray = [];
+  let awayArray = [];
+  for (var i = 0; i < 9; i++) {
+    let homeScores = Math.floor(Math.random() * 2 + 1);
+    let awayScores = Math.floor(Math.random() * 2 + 1);
+    homeArray.push(homeScores); 
+    awayArray.push(awayScores); 
+    /* console.log(homeArray[i]); */
+    //console.log(awayArray[i]);
+  }
+  /* console.log(homeArray); */
+  //console.log(awayArray);
+
+  //this array of objects logs to the console the values of the function above
+  let inningsObject = [
+    {'1st inning': `${homeArray[0]} - ${awayArray[0]}`},
+    {'2nd inning': `${homeArray[1]} - ${awayArray[1]}`},
+    {'3rd inning': `${homeArray[2]} - ${awayArray[2]}`},
+    {'4th inning': `${homeArray[3]} - ${awayArray[3]}`},
+    {'5th inning': `${homeArray[4]} - ${awayArray[4]}`},
+    {'6th inning': `${homeArray[5]} - ${awayArray[5]}`},
+    {'7th inning': `${homeArray[6]} - ${awayArray[6]}`},
+    {'8th inning': `${homeArray[7]} - ${awayArray[7]}`},
+    {'9th inning': `${homeArray[8]} - ${awayArray[8]}`}
+  ]
+  console.log(inningsObject);
+  return inningsObject; 
+}
+console.log(scoresPerInning()); 
+
+
+
+
+
 
 
