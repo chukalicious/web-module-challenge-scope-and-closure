@@ -149,10 +149,10 @@ function scoreboard(/* CODE HERE */) {
 //this time the good people at Lambda want me to display every result on every turn
 
 //this function creates arrays of random numbers for the home and away teams and logs them to the console. it does not return values
-function scoresPerInning() {
+function scoresPerInning(turns) {
   let homeArray = [];
   let awayArray = [];
-  for (var i = 0; i < 9; i++) {
+  for (var i = 0; i < turns; i++) {
     let homeScores = Math.floor(Math.random() * 2 + 1);
     let awayScores = Math.floor(Math.random() * 2 + 1);
     homeArray.push(homeScores); 
@@ -178,7 +178,7 @@ function scoresPerInning() {
   console.log(inningsObject);
   return inningsObject; 
 }
-console.log(scoresPerInning()); 
+console.log(scoresPerInning(9)); 
 
 
 
