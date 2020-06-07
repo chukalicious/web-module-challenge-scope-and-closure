@@ -97,7 +97,7 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(turns,func){//when I add inning() as the second parameter the random number becomes static
+function finalScore(turns,func){//when I add inning() as the second parameter the random number becomes static --solution: the callback goes here without parenthesis. you only addd the parenthesis whe you want to do the callback INSIDE the/this function. Look for func below
   let HomeVsAway = [{home: 0, away: 0}]; //this is the array where we're displaying our values
   let homeScore = 0;//this is the counter for the home team
   let awayScore = 0; //this is the counter for the away team
@@ -152,11 +152,11 @@ function scoreboard(turns, func) {
     awayArray.push(awayScores); 
     scoreLine.push(`${i + 1}${ordinal[i]} inning: ${homeArray[i]} - ${awayArray[i]}`);
   }
-  //return scoreLine; 
+  return scoreLine; 
   
   
   //Option with array of objects
-  let inningsObject = [
+  /* let inningsObject = [
     {'1st inning': `${homeArray[0]} - ${awayArray[0]}`},
     {'2nd inning': `${homeArray[1]} - ${awayArray[1]}`},
     {'3rd inning': `${homeArray[2]} - ${awayArray[2]}`},
@@ -167,8 +167,7 @@ function scoreboard(turns, func) {
     {'8th inning': `${homeArray[7]} - ${awayArray[7]}`},
     {'9th inning': `${homeArray[8]} - ${awayArray[8]}`}
   ]
-  return inningsObject; 
-
+  return inningsObject;  */
 }
 console.log(scoreboard(9, inning)); 
 
